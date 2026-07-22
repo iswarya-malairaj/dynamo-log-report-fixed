@@ -1,28 +1,29 @@
 #!/bin/bash
 set -e
 
+echo "=== Verifier Started ==="
+echo "Files in /app:"
+ls -la /app/
+
 mkdir -p /logs/verifier
 
-pytest /tests/test_outputs.py \
-    --json-report \
-    --ctrf=/logs/verifier/ctrf.json
+echo "Running pytest..."
+pytest /tests/test_outputs.py -rA
+PYTEST_EXIT=$?
 
-RESULT=$?
-
-if [ $RESULT -eq 0 ]; then
+if [ $PYTEST_EXIT -eq 0 ]; then
     REWARD=1
 else
     REWARD=0
 fi
 
 echo "$REWARD" > /logs/verifier/reward.txt
-cat > /logs/verifier/reward.json <<EOF
-{
-  "reward": $REWARD
-}
-EOF
+echo "Reward written: $REWARD"
 
-echo "Verifier files:"
+# Create reward.json without heredoc
+echo "{\"reward\": $REWARD}" > /logs/verifier/reward.json
+
+echo "=== Verifier files ==="
 ls -la /logs/verifier/
 cat /logs/verifier/reward.txt
 
