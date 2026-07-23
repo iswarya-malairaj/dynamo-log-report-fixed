@@ -1,1 +1,16 @@
-jobs/ 
+# Python cache
+__pycache__/
+.pytest_cache/
+*.pyc
+
+# Binary files
+*.wav
+*.bin
+*.log
+
+# Generated files
+recovered_audio.wav
+
+# IDE
+.vscode/
+.idea/

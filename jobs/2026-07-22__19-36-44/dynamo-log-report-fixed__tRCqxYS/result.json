@@ -1,0 +1,111 @@
+{
+    "id": "4a7d0bf4-6be9-44de-9f18-683ed9ccba64",
+    "task_name": "dynamo/log-report",
+    "trial_name": "dynamo-log-report-fixed__tRCqxYS",
+    "trial_uri": "file:///C:/Users/THIS%20PC/Downloads/dynamo-log-report-fixed/jobs/2026-07-22__19-36-44/dynamo-log-report-fixed__tRCqxYS",
+    "task_id": {
+        "path": "."
+    },
+    "source": null,
+    "task_checksum": "91c16f4fd365236073acf6733983c0ff003b02b6421efeb3e9cfd98e28b46cca",
+    "config": {
+        "task": {
+            "path": ".",
+            "git_url": null,
+            "git_commit_id": null,
+            "name": null,
+            "ref": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "dynamo-log-report-fixed__tRCqxYS",
+        "trials_dir": "jobs\\2026-07-22__19-36-44",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "nop",
+            "import_path": null,
+            "model_name": null,
+            "n_concurrent": null,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {},
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": true,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "job_id": "6aba1eb1-f092-48df-a515-b178909c7e75"
+    },
+    "agent_info": {
+        "name": "nop",
+        "version": "1.0.0",
+        "model_info": null
+    },
+    "agent_result": {
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": null,
+    "exception_info": {
+        "exception_type": "RewardFileNotFoundError",
+        "exception_message": "No reward file found at jobs\\2026-07-22__19-36-44\\dynamo-log-report-fixed__tRCqxYS\\verifier\\reward.txt or jobs\\2026-07-22__19-36-44\\dynamo-log-report-fixed__tRCqxYS\\verifier\\reward.json",
+        "exception_traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\THIS PC\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\harbor\\trial\\trial.py\", line 354, in run\n    await self._run()\n  File \"C:\\Users\\THIS PC\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\harbor\\trial\\single_step.py\", line 52, in _run\n    await self._run_verifier()\n  File \"C:\\Users\\THIS PC\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\harbor\\trial\\single_step.py\", line 105, in _run_verifier\n    self.result.verifier_result = await self._run_shared_verifier(\n                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\THIS PC\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\harbor\\trial\\trial.py\", line 535, in _run_shared_verifier\n    return await asyncio.wait_for(\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\THIS PC\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\asyncio\\tasks.py\", line 520, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"C:\\Users\\THIS PC\\AppData\\Roaming\\uv\\tools\\harbor\\Lib\\site-packages\\harbor\\verifier\\verifier.py\", line 232, in verify\n    raise RewardFileNotFoundError(\nharbor.verifier.verifier.RewardFileNotFoundError: No reward file found at jobs\\2026-07-22__19-36-44\\dynamo-log-report-fixed__tRCqxYS\\verifier\\reward.txt or jobs\\2026-07-22__19-36-44\\dynamo-log-report-fixed__tRCqxYS\\verifier\\reward.json\n",
+        "occurred_at": "2026-07-22T19:36:59.576193"
+    },
+    "started_at": "2026-07-22T14:06:46.062079Z",
+    "finished_at": "2026-07-22T14:07:10.823403Z",
+    "environment_setup": {
+        "started_at": "2026-07-22T14:06:46.759313Z",
+        "finished_at": "2026-07-22T14:06:56.643626Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-07-22T14:06:56.643626Z",
+        "finished_at": "2026-07-22T14:06:56.643626Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-07-22T14:06:56.643626Z",
+        "finished_at": "2026-07-22T14:06:56.643626Z"
+    },
+    "verifier": {
+        "started_at": "2026-07-22T14:06:57.236225Z",
+        "finished_at": "2026-07-22T14:06:59.542345Z"
+    },
+    "step_results": null
+}

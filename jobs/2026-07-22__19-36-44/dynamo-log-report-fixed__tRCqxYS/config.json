@@ -1,0 +1,15 @@
+{
+    "task": {
+        "path": "."
+    },
+    "trial_name": "dynamo-log-report-fixed__tRCqxYS",
+    "trials_dir": "jobs\\2026-07-22__19-36-44",
+    "agent": {
+        "name": "nop"
+    },
+    "environment": {
+        "type": "docker",
+        "force_build": true
+    },
+    "job_id": "6aba1eb1-f092-48df-a515-b178909c7e75"
+}

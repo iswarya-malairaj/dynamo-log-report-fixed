@@ -1,29 +1,15 @@
 #!/bin/bash
-set -e
+# Run pytest with the correct Python path
+set -e  # Exit on error
 
-mkdir -p /logs/verifier
+echo "Running verifier tests..."
+PYTHONPATH=/app python -m pytest /app/tests/test_outputs.py -v --tb=short
 
-pytest /tests/test_outputs.py \
-    --json-report \
-    --ctrf=/logs/verifier/ctrf.json
-
-RESULT=$?
-
-if [ $RESULT -eq 0 ]; then
-    REWARD=1
+# Check exit code
+if [ $? -eq 0 ]; then
+    echo "✅ All tests passed!"
+    exit 0
 else
-    REWARD=0
+    echo "❌ Tests failed!"
+    exit 1
 fi
-
-echo "$REWARD" > /logs/verifier/reward.txt
-cat > /logs/verifier/reward.json <<EOF
-{
-  "reward": $REWARD
-}
-EOF
-
-echo "Verifier files:"
-ls -la /logs/verifier/
-cat /logs/verifier/reward.txt
-
-exit 0

@@ -1,0 +1,61 @@
+=== Verifier Started ===
+Files in /app:
+total 12
+drwxr-xr-x 1 root root 4096 Jul 22 14:05 .
+drwxr-xr-x 1 root root 4096 Jul 22 14:06 ..
+-rwxr-xr-x 1 root root  488 Jul 22 13:52 access.log
+Running pytest...
+============================= test session starts ==============================
+platform linux -- Python 3.13.12, pytest-8.4.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 4 items
+
+../tests/test_outputs.py FFFF                                            [100%]
+
+=================================== FAILURES ===================================
+______________________________ test_report_exists ______________________________
+
+    def test_report_exists():
+        """The report file must exist."""
+>       assert Path("/app/report.json").exists(), "report.json not found"
+E       AssertionError: report.json not found
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/app/report.json').exists
+E        +      where PosixPath('/app/report.json') = Path('/app/report.json')
+
+/tests/test_outputs.py:6: AssertionError
+_____________________________ test_total_requests ______________________________
+
+    def test_total_requests():
+        """Total requests must be correct."""
+>       with open("/app/report.json") as f:
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/app/report.json'
+
+/tests/test_outputs.py:10: FileNotFoundError
+_______________________________ test_unique_ips ________________________________
+
+    def test_unique_ips():
+        """Unique IPs must be correct."""
+>       with open("/app/report.json") as f:
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/app/report.json'
+
+/tests/test_outputs.py:16: FileNotFoundError
+________________________________ test_top_path _________________________________
+
+    def test_top_path():
+        """Top path must be correct."""
+>       with open("/app/report.json") as f:
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/app/report.json'
+
+/tests/test_outputs.py:22: FileNotFoundError
+=========================== short test summary info ============================
+FAILED ../tests/test_outputs.py::test_report_exists - AssertionError: report....
+FAILED ../tests/test_outputs.py::test_total_requests - FileNotFoundError: [Er...
+FAILED ../tests/test_outputs.py::test_unique_ips - FileNotFoundError: [Errno ...
+FAILED ../tests/test_outputs.py::test_top_path - FileNotFoundError: [Errno 2]...
+============================== 4 failed in 0.07s ===============================

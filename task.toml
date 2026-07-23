@@ -1,4 +1,4 @@
-artifacts = ["/app/report.json", "/logs/verifier/reward.txt", "/logs/verifier/reward.json"]
+artifacts = ["/app/report.json"]
 
 [task]
 name = "dynamo/log-report"
@@ -18,7 +18,6 @@ verification_explanation = "Check the report file."
 
 [verifier]
 timeout_sec = 120.0
-command = "bash /tests/test.sh"
 
 [agent]
 timeout_sec = 120.0
@@ -31,3 +30,6 @@ storage_mb = 10240
 gpus = 0
 allow_internet = true
 mcp_servers = []
+ 
+[artifacts] 
+output = "/app/recovered_audio.wav" 
