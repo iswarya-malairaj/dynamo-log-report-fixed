@@ -1,0 +1,17 @@
+{
+    "job_name": "2026-07-22__19-36-44",
+    "environment": {
+        "type": "docker",
+        "force_build": true
+    },
+    "agents": [
+        {
+            "name": "nop"
+        }
+    ],
+    "tasks": [
+        {
+            "path": "."
+        }
+    ]
+}

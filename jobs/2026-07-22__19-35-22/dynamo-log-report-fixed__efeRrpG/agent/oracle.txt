@@ -1,0 +1,3 @@
+Reading log from: /app/access.log
+wrote /app/report.json with 6 requests
+Report: {'total_requests': 6, 'unique_ips': 3, 'top_path': '/index.html'}

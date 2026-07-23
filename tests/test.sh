@@ -1,30 +1,15 @@
 #!/bin/bash
-set -e
+# Run pytest with the correct Python path
+set -e  # Exit on error
 
-echo "=== Verifier Started ==="
-echo "Files in /app:"
-ls -la /app/
+echo "Running verifier tests..."
+PYTHONPATH=/app python -m pytest /app/tests/test_outputs.py -v --tb=short
 
-mkdir -p /logs/verifier
-
-echo "Running pytest..."
-pytest /tests/test_outputs.py -rA
-PYTEST_EXIT=$?
-
-if [ $PYTEST_EXIT -eq 0 ]; then
-    REWARD=1
+# Check exit code
+if [ $? -eq 0 ]; then
+    echo "✅ All tests passed!"
+    exit 0
 else
-    REWARD=0
+    echo "❌ Tests failed!"
+    exit 1
 fi
-
-echo "$REWARD" > /logs/verifier/reward.txt
-echo "Reward written: $REWARD"
-
-# Create reward.json without heredoc
-echo "{\"reward\": $REWARD}" > /logs/verifier/reward.json
-
-echo "=== Verifier files ==="
-ls -la /logs/verifier/
-cat /logs/verifier/reward.txt
-
-exit 0

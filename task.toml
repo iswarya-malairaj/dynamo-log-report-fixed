@@ -30,3 +30,6 @@ storage_mb = 10240
 gpus = 0
 allow_internet = true
 mcp_servers = []
+ 
+[artifacts] 
+output = "/app/recovered_audio.wav" 
